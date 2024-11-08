@@ -109,6 +109,7 @@ main {
     font-size: 1rem; /* Base font size for mobile view */
     display: flex;
     flex-direction: column;
+    padding: 0; /* Remove extra padding */
 }
 
 section {
@@ -232,7 +233,7 @@ div.athlete figcaption {
 
 /* Home page specific styles */
 .homepage {
-    padding: var(--section-padding);
+    padding: 0; /* Removed extra padding */
     width: 100%;
 }
 
@@ -259,8 +260,7 @@ div.athlete figcaption {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-bottom: var(--section-margin-bottom);
-    margin-left: 0; /* Ensure it stretches end-to-end */
-    margin-right: 0; /* Ensure it stretches end-to-end */
+    width: 100%; /* Ensure it stretches end-to-end */
 }
 
 .homepage section h2 {
@@ -274,9 +274,9 @@ div.athlete figcaption {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%; /* Ensure it spans full width */
-    padding: 0 1rem; /* Add side padding to contain flex-gap within the viewport */
+    padding: 0; /* Remove side padding */
 }
 
 .homepage .result {
@@ -285,7 +285,7 @@ div.athlete figcaption {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: var(--card-padding);
-    flex: 1 1 100%; /* Ensure full width */
+    flex: 1 0 100%; /* Ensure full width on mobile view */
     margin-bottom: 1rem; /* Spacing between results */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -340,8 +340,8 @@ div.athlete figcaption {
     }
 
     .homepage .result {
-        flex: 1 1 calc(50% - 2rem); /* Two results per row on tablets */
-        margin: 1rem; /* Margin for spacing */
+        flex: 1 0 calc(50% - 1rem); /* Two results per row on tablets */
+        margin-bottom: 1rem; /* Margin for spacing */
     }
 
     .homepage header h1 {
@@ -397,8 +397,8 @@ div.athlete figcaption {
     }
 
     .homepage .result {
-        flex: 1 1 calc(25% - 2rem); /* Four results per row on desktops */
-        margin: 1rem; /* Margin for spacing */
+        flex: 1 0 calc(25% - 1rem); /* Four results per row on desktops */
+        margin-bottom: 1rem; /* Margin for spacing */
     }
 
     .homepage header h1 {
