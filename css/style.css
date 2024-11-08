@@ -21,10 +21,10 @@
     --nav-item-hover-bg: rgba(255, 255, 255, 0.3);
 }
 
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html, body {
@@ -41,9 +41,9 @@ body {
     line-height: 1.6;
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
+    max-width: 100%; /* Ensure no horizontal overflow */
 }
 
-/* Fade in and out animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -55,7 +55,7 @@ header {
     padding: 2.5rem 1rem;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 100%; /* Ensure full width */
 }
 
 header .logo img {
@@ -73,6 +73,7 @@ header h1, header h2 {
 
 nav {
     animation: fadeIn 1.5s ease-in-out;
+    width: 100%; /* Ensure full width */
 }
 
 nav ul {
@@ -82,10 +83,12 @@ nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Full width */
 }
 
 nav ul li {
     margin-bottom: 0.5rem;
+    width: 100%; /* Full width */
 }
 
 nav ul li a {
@@ -93,10 +96,9 @@ nav ul li a {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     text-decoration: none;
-    border-color: #000000;
     background-color: var(--nav-item-bg);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%;
+    width: 100%; /* Full width */
     text-align: center;
 }
 
@@ -105,11 +107,10 @@ nav ul li a:hover {
 }
 
 main {
-    width: 100%;
-    font-size: 1rem; /* Base font size for mobile view */
+    padding: 0; /* Remove extra padding */
+    width: 100%; /* Ensure full width */
     display: flex;
     flex-direction: column;
-    padding: 0; /* Remove extra padding */
 }
 
 section {
@@ -119,8 +120,8 @@ section {
     box-shadow: var(--box-shadow);
     margin-bottom: var(--section-margin-bottom);
     transition: transform 0.3s ease;
-    width: 100%;
-    font-size: 1rem; /* Base font size for mobile view */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* include padding and border in the width */
 }
 
 section h2 {
@@ -168,7 +169,7 @@ footer {
     text-align: center;
     padding: 1rem;
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 100%; /* Ensure full width */
 }
 
 footer p {
@@ -184,7 +185,7 @@ div.athlete {
     border-radius: var(--border-radius);
     border: 1px solid var(--athlete-border-color);
     transition: transform 0.3s ease, border-color 0.3s ease;
-    width: 100%;
+    width: 100%; /* Full width */
     font-size: 1rem; /* Base font size for mobile view */
 }
 
@@ -234,7 +235,7 @@ div.athlete figcaption {
 /* Home page specific styles */
 .homepage {
     padding: 0; /* Removed extra padding */
-    width: 100%;
+    width: 100%; /* Full width */
 }
 
 .homepage .logo img {
@@ -260,7 +261,8 @@ div.athlete figcaption {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-bottom: var(--section-margin-bottom);
-    width: 100%; /* Ensure it stretches end-to-end */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* include padding and border in the width */
 }
 
 .homepage section h2 {
@@ -276,7 +278,8 @@ div.athlete figcaption {
     gap: 1rem;
     justify-content: space-between;
     width: 100%; /* Ensure it spans full width */
-    padding: 0; /* Remove side padding */
+    padding: 0 1rem; /* Add side padding */
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .homepage .result {
@@ -285,10 +288,11 @@ div.athlete figcaption {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: var(--card-padding);
-    flex: 1 0 100%; /* Ensure full width on mobile view */
+    width: 100%; /* Full width on mobile view */
     margin-bottom: 1rem; /* Spacing between results */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .homepage .result h3 {
@@ -333,15 +337,19 @@ div.athlete figcaption {
 
     main {
         font-size: 1.1rem;
+        padding: 0 2rem; /* Add padding to main content on larger screens */
+        box-sizing: border-box; /* Include padding and border in the width */
     }
 
     section {
         font-size: 1.1rem;
+        padding: var(--card-padding) 2rem; /* Add padding to sections on larger screens */
+        box-sizing: border-box; /* Include padding and border in the width */
     }
 
     .homepage .result {
-        flex: 1 0 calc(50% - 1rem); /* Two results per row on tablets */
-        margin-bottom: 1rem; /* Margin for spacing */
+        flex: 1 0 calc(50% - 2rem); /* Two results per row on tablets */
+        margin-bottom: 2rem; /* Margin for spacing */
     }
 
     .homepage header h1 {
@@ -368,8 +376,9 @@ div.athlete figcaption {
         justify-content: center;
         align-items: center;
         padding: 1rem 2rem;
+        box-sizing: border-box; /* Include padding and border in the width */
     }
-    
+
     header h1, header h2 {
         font-size: 2.5rem;
         text-align: center;
@@ -386,10 +395,14 @@ div.athlete figcaption {
 
     main {
         font-size: 1.2rem;
+        padding: 0 3rem; /* Add padding to main content on larger screens */
+        box-sizing: border-box; /* Include padding and border in the width */
     }
 
     section {
         font-size: 1.2rem;
+        padding: var(--card-padding) 3rem; /* Add padding to sections on larger screens */
+        box-sizing: border-box; /* Include padding and border in the width */
     }
 
     section h2 {
@@ -397,8 +410,8 @@ div.athlete figcaption {
     }
 
     .homepage .result {
-        flex: 1 0 calc(25% - 1rem); /* Four results per row on desktops */
-        margin-bottom: 1rem; /* Margin for spacing */
+        flex: 1 0 calc(25% - 2rem); /* Four results per row on desktops */
+        margin-bottom: 2rem; /* Margin for spacing */
     }
 
     .homepage header h1 {
@@ -441,7 +454,7 @@ div.athlete figcaption {
         --header-background: #1e88e5;
         --header-text-color: #f2f2f2;
         --homepage-section-event-color: rgb(0, 0, 0);
-        --main-text-color: rgb(248, 248, 248);
+        --main-text-color: rgb(248,248,248);
         --link-color: #4691f4;
         --link-hover-color: #1b74e4;
         --border-color: #fffcfc;
